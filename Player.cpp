@@ -62,24 +62,24 @@ void Player::setName(string n){
 void Player::setExperience(int exp){
     experience=exp;
 }
-int Player::setAccuracy(int acc){
+void Player::setAccuracy(int acc){
     accuracy=acc;
 }
-int Player::setEfficiency(int eff){
+void Player::setEfficiency(int eff){
     efficiency=eff;
 }
-int Player::setInsight(int ins){
+void Player::setInsight(int ins){
     insight=ins;
 }
-int Player::setDiscoveryPts(int dp){
+void Player::setDiscoveryPts(int dp){
     discoveryPoints=dp;
 }
-int Player::setAdvisor(int adv){
+void Player::setAdvisor(int adv){
     advisor=adv;
 }
-int Player::setPathType(int pt){
+void Player::setPathType(int pt){
     pathType=pt;
 }
-int Player::setLane(int l){
+void Player::setLane(int l){
     lane=l;
 }

@@ -29,11 +29,11 @@ class Player{
 
         void setName(string n); //setters
         void setExperience(int exp);
-        int setAccuracy(int acc);
-        int setEfficiency(int eff);
-        int setInsight(int ins);
-        int setDiscoveryPts(int dp);
-        int setAdvisor(int adv);
-        int setPathType(int pt);
-        int setLane(int l);
+        void setAccuracy(int acc);
+        void setEfficiency(int eff);
+        void setInsight(int ins);
+        void setDiscoveryPts(int dp);
+        void setAdvisor(int adv);
+        void setPathType(int pt);
+        void setLane(int l);
 };
