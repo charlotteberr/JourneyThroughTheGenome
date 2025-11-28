@@ -4,6 +4,7 @@
 
 using namespace std;
 
+//constructors
 Player::Player(){
     playerName="";
     experience=0;
@@ -28,6 +29,7 @@ Player::Player(string n, int exp, int acc, int eff, int ins, int dp){
     lane=-1;
 }
 
+//getters
 string Player::getName(){
     return playerName;
 }
@@ -56,6 +58,7 @@ int Player::getLane(){
     return lane;
 }
 
+//setters
 void Player::setName(string n){
     playerName=n;
 }
@@ -85,4 +88,21 @@ void Player::setPathType(int pt){
 }
 void Player::setLane(int l){
     lane=l;
+}
+
+//adders
+void Player::addAccuracy(int amount){
+    accuracy+=amount;
+    if(accuracy<100){accuracy=100;}
+}
+void Player::addEfficiency(int amount){
+    efficiency+=amount;
+    if(efficiency<100){efficiency=100;}
+}
+void Player::addInsight(int amount){
+    insight+=amount;
+    if(insight<100){insight=100;}
+}
+void Player::addDiscoveryPts(int amount){
+    discoveryPoints+=amount;
 }

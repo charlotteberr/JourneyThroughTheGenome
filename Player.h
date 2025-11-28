@@ -36,4 +36,9 @@ class Player{
         void setAdvisor(int adv);
         void setPathType(int pt);
         void setLane(int l);
+
+        void addAccuracy(int amount);
+        void addEfficiency(int amount);
+        void addInsight(int amount);
+        void addDiscoveryPts(int amount);
 };
