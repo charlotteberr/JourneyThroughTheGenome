@@ -69,13 +69,17 @@ int main(){
     cout<<"PLAYER 1, choose your character (Type a number 1-5): ";
     int choice1;
     cin>>choice1;
+    while (choice1 < 1 || choice1 > 5) {
+        cout << "Invalid choice. Please choose a number from 1 to 5: ";
+        cin >> choice1;
+    }
     players[0]=characterInfo[choice1-1];
     cout<<"PLAYER 2, choose your character (Type a number 1-5, not including "<<choice1<<"): ";
     int choice2;
     cin>>choice2;
-    while(choice1==choice2){
-        cout<<"Choose a different character that is not being used byt PLAYER 1: ";
-        cin>>choice2;
+    while (choice2 < 1 || choice2 > 5 || choice2 == choice1) {
+        cout << "Choose a different character (1-5, not " << choice1 << "): ";
+        cin >> choice2;
     }
     players[1]=characterInfo[choice2-1];
 
@@ -108,7 +112,7 @@ int main(){
         cout<<"Type a number 1-5: ";
         int advisorChoice;
         cin>>advisorChoice;
-        players[0].setPathType(choice1-1);
+        players[0].setPathType(0);
         players[0].setAdvisor(advisorChoice);
         players[0].addDiscoveryPts(-5000);
         players[0].addAccuracy(500);
@@ -116,7 +120,7 @@ int main(){
         players[0].addInsight(1000);
     }
     else{
-        players[0].setPathType(choice1-1);
+        players[0].setPathType(1);
         players[0].addDiscoveryPts(5000);
         players[0].addAccuracy(200);
         players[0].addEfficiency(200);
@@ -141,7 +145,7 @@ int main(){
         cout<<"Type a number 1-5: ";
         int advisorChoice;
         cin>>advisorChoice;
-        players[1].setPathType(choice2-1);
+        players[1].setPathType(0);
         players[1].setAdvisor(advisorChoice);
         players[1].addDiscoveryPts(-5000);
         players[1].addAccuracy(500);
@@ -149,7 +153,7 @@ int main(){
         players[1].addInsight(1000);
     }
     else{
-        players[1].setPathType(choice2-1);
+        players[1].setPathType(1);
         players[1].addDiscoveryPts(5000);
         players[1].addAccuracy(200);
         players[1].addEfficiency(200);
