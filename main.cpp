@@ -78,4 +78,63 @@ int main(){
         cin>>choice2;
     }
     players[1]=characterInfo[choice2-1];
+
+    cout<<endl;
+    cout<<"Time to choose your paths... "<<endl;
+    cout<<"1. Training Fellowship"<<endl;
+    cout<<"This path equips your scientist with essential traits (accuracy, efficiency, and insight) needed for future challenges. "<<endl;
+    cout<<"Requires an investment of -5000 DP. But, gives +500 ACC, +500 EFF, and +1000 INS."<<endl;
+    cout<<"You will choose an advisor who grants a special ability that protects them during random events that negatively impact DP."<<endl;
+    cout<<endl<<"2. Direct Lab Assignment"<<endl;
+    cout<<"This option lets your scientist jump directly into the life of DNA sequencing."<<endl;
+    cout<<"Gives an immediate boost of +5000 DP. Also gives +200 ACC, +200 EFF, +200 INS."<<endl;
+    cout<<"No advisor is given."<<endl;
+
+    cout<<endl<<"PLAYER 1, choose your path (Type 1 or 2): ";
+    cin>>choice1;
+    if(choice1==1){
+        cout<<endl<<"Choose your advisor... "<<endl;
+        inFile.open("advisor.txt");
+        if(inFile.fail()){
+            cout<<"Failed to open advisor.txt"<<endl;
+            return 1;
+        }
+        else{
+            while(getline(inFile,line)){
+                cout<<line<<endl;
+            }
+        }
+        inFile.close();
+        cout<<"Type a number 1-5: ";
+        int advisorChoice;
+        cin>>advisorChoice;
+        players[0].setAdvisor(advisorChoice);
+    }
+    else{
+        players[0].setPathType(choice1);
+    }
+
+    cout<<endl<<"PLAYER 2, choose your path (Type 1 or 2): ";
+    cin>>choice2;
+    if(choice2==1){
+        cout<<endl<<"Choose your advisor... "<<endl;
+        inFile.open("advisor.txt");
+        if(inFile.fail()){
+            cout<<"Failed to open advisor.txt"<<endl;
+            return 1;
+        }
+        else{
+            while(getline(inFile,line)){
+                cout<<line<<endl;
+            }
+        }
+        inFile.close();
+        cout<<"Type a number 1-5: ";
+        int advisorChoice;
+        cin>>advisorChoice;
+        players[1].setAdvisor(advisorChoice);
+    }
+    else{
+        players[1].setPathType(choice2);
+    }
 }
