@@ -269,6 +269,31 @@ int main(){
                         p2Finished=true;
                     }
                 }
+                else{
+                    int pos=board.getPlayerPosition(currentPlayer);
+                    char color=board.getTileColor(currentPlayer, pos); // get position and color on that position
+                    if(color=='G'){
+
+                    }
+                    else if(color=='U'){
+                        
+                    }
+                    else if(color=='B'){
+                        
+                    }
+                    else if(color=='P'){
+                        
+                    }
+                    else if(color=='R'){
+                        
+                    }
+                    else if(color=='T'){
+                        
+                    }
+                    else{
+                        cout<<"\nInvalid Tile Type.";
+                    }
+                }
 
                 turnFinished=true;
             }
