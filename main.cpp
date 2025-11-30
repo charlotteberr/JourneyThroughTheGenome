@@ -221,7 +221,31 @@ int main(){
                 board.displayBoard();
             }
             else if(menuChoice==4){
-                //ADD CHOICE 4
+                if(players[currentPlayer].getAdvisor()==0){
+                    cout<<endl<<"Your player has no advisor"<<endl;
+                }
+                else{
+                    if(players[currentPlayer].getAdvisor()==1){
+                        cout<<endl<<"Advisor: Dr. Aliquot";
+                        cout<<endl<<"Ability: A master of the \"wet lab\", assisting in avoiding contamination.\n";
+                    }
+                    else if(players[currentPlayer].getAdvisor()==2){
+                        cout<<endl<<"Advisor: Dr. Assembler";
+                        cout<<endl<<"Ability: An expert who helps improve efficiency and streamlines pipelines.\n";
+                    }
+                    else if(players[currentPlayer].getAdvisor()==3){
+                        cout<<endl<<"Advisor: Dr. Pop-Gen";
+                        cout<<endl<<"Ability: A genetics specialist with insight for identifying rare genetic variants\n";
+                    }
+                    else if(players[currentPlayer].getAdvisor()==4){
+                        cout<<endl<<"Advisor: Dr. Bio-Script";
+                        cout<<endl<<"Ability: The genius behind the data analysis, helps debug code.\n";
+                    }
+                    else if(players[currentPlayer].getAdvisor()==5){
+                        cout<<endl<<"Advisor: Dr. Loci";
+                        cout<<endl<<"Ability: Your biggest supporter assisting you in learning the equipment.\n";
+                    }
+                }
             }
             else if(menuChoice==5){
                 int roll = rand() % 6+1;
