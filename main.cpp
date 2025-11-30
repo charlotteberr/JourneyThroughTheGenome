@@ -46,10 +46,40 @@ vector<RandomEvent> loadRandomEvents(string filename){
         event.pathType=stoi(parts[1]);
         event.advisorProtection=stoi(parts[2]);
         event.dpChange=stoi(parts[3]);
-        
+
         events.push_back(event);
     }
     return events;
+}
+
+Player processGreenTile(Player p, vector<RandomEvent> events){
+    if(rand()%2==0){
+        cout<<endl<<"No event triggered on this tile...\n";
+    }
+    int index=rand()% events.size();
+    RandomEvent event=events[index];
+    if(p.getPathType() != event.pathType){
+        cout<<"\nThis event does not affect your path...\n";
+        return p;
+    }
+    else{
+        cout<<"\n----EVENT TRIGGERED----\n";
+        cout<<endl<<event.description<<endl;
+        if(event.dpChange<0){
+            if(p.getAdvisor()==event.advisorProtection && event.advisorProtection!=0){
+                cout<<endl<<"Your advisor protected you from this event! No DP change occurs.";
+            }
+            else{
+                cout<<endl<<"You lose "<<event.dpChange<<" DP...\n";
+                p.addDiscoveryPts(event.dpChange);
+            }
+        }
+        else{
+            cout<<endl<<"You gain +"<<event.dpChange<<" DP!\n";
+            p.addDiscoveryPts(event.dpChange);
+        }
+        return p;
+    }
 }
 
 int main(){
@@ -81,6 +111,8 @@ int main(){
         }
     }
     inFile.close();
+
+    vector<RandomEvent> randomEvents=loadRandomEvents("random_events.txt");
 
     cout<<endl<<"Welcome to the Journey Through the Genome!"<<endl;
     cout<<"Here we have the 5 characters to choose from..."<<endl;
@@ -299,7 +331,7 @@ int main(){
                     int pos=board.getPlayerPosition(currentPlayer);
                     char color=board.getTileColor(currentPlayer, pos); // get position and color on that position
                     if(color=='G'){
-
+                        players[currentPlayer]=processGreenTile(players[currentPlayer], randomEvents);
                     }
                     else if(color=='U'){
                         
