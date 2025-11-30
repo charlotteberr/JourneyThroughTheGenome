@@ -1,7 +1,7 @@
 # CSCI 1300 Final Project
 # Journey Through the Genome
 
-Journey Through the Genome is a two-player, text-based board game where players compete to become the next Lead Genomicist in a lion conservation genomics lab. Players move across a two-lane board, complete DNA-based challenges, face random lab events, and earn Discover Points based on their performance.
+Journey Through the Genome is a two-player, text-based board game where players compete to become the next Lead Genomicist in a lion conservation genomics lab. Players move across a two-lane board, complete DNA-based challenges, face random lab events, and earn Discovery Points based on their performance.
 
 ---
 
@@ -15,7 +15,7 @@ Journey Through the Genome is a two-player, text-based board game where players 
     - Direct Lab Assignment – faster start with higher risk.
 - Players take turns spinning a virtual spinner to move across the board.
 - The game ends when both players reach the final tile (Genome Conference).
-- The player with the highest Discover Points (DP) at the end wins.
+- The player with the highest Discovery Points (DP) at the end wins.
 
 ---
 
@@ -43,7 +43,7 @@ Players will complete four different DNA-based tasks:
 3. Red Tile – Identify substitutions, deletions, and insertions after alignment.
 4. Brown Tile – Transcribe a DNA strand into RNA by replacing T with U.
 
-These tasks affect player stats such as Accuracy, Insight, Efficiency, and Discover Points.
+These tasks affect player stats such as Accuracy, Insight, Efficiency, and Discovery Points.
 
 ---
 
@@ -57,9 +57,9 @@ Players who choose the Training Fellowship path select an advisor. Advisors can 
 
 When both players reach the final tile:
 
-- Every 100 points of Accuracy, Efficiency, and Insight are converted into 1,000 Discover Points.
+- Every 100 points of Accuracy, Efficiency, and Insight are converted into 1,000 Discovery Points.
 - Final stats are displayed.
-- The winner is declared based on total Discover Points.
+- The winner is declared based on total Discovery Points.
 - Final game results are saved to `game_stats.txt`.
 
 ---
