@@ -654,4 +654,55 @@ int main(){
         }
         currentPlayer=1-currentPlayer;
     }
+    cout<<endl<<"========================================"<<endl;
+    cout<<"                GAME OVER               "<<endl;
+    cout<<"========================================"<<endl;
+    for(int i=0;i<2;i++){
+        int accPoints=players[i].getAccuracy()/100;
+        int effPoints=players[i].getEfficiency()/100;
+        int insPoints=players[i].getInsight()/100;
+        int bonus=(accPoints+effPoints+insPoints)*1000;
+        cout<<endl<<"Player "<<(i+1)<<" earns "<<bonus<<" bonus points from traits!\n";
+        players[i].addDiscoveryPts(bonus);
+    }
+    for(int i=0;i<2;i++){
+        cout<<"\nFinal Stats for Player "<<(i+1)<<" | "<<players[i].getName()<<" |\n";
+        cout<<"  Accuracy:   "<<players[i].getAccuracy()<<endl;
+        cout<<"  Efficiency: "<<players[i].getEfficiency()<<endl;
+        cout<<"  Insight:    "<<players[i].getInsight()<<endl;
+        cout<<"  DP:         "<<players[i].getDiscoveryPts()<<endl;
+    }
+    int dp1=players[0].getDiscoveryPts();
+    int dp2=players[1].getDiscoveryPts();
+
+    cout<<endl<<"========================================"<<endl;
+    if(dp1>dp2){
+        cout<<endl<<"| WINNER | Player 1 - "<<players[0].getName()<< "with "<<dp1<<" Discovery Points!\n";
+    }
+    else if(dp2>dp1){
+        cout<<endl<<"| WINNER | Player 2 - "<<players[1].getName()<< "with "<<dp2<<" Discovery Points!\n";
+    }
+    else if(dp1==dp2){
+        cout<<endl<<"| TIE | Both players have equal Discovery Points!\n";
+    }
+
+    ofstream outFile;
+    outFile.open("game_stats.txt");
+    if(outFile.is_open()){
+        outFile<<"Journey Through the Genome - Final Game Stats\n\n";
+        for(int i = 0; i < 2; i++){
+            outFile<<"Player "<<(i+1)<<" | "<<players[i].getName()<<" |\n";
+            outFile<<"  Accuracy:   "<<players[i].getAccuracy()<<endl;
+            outFile<<"  Efficiency: "<<players[i].getEfficiency()<<endl;
+            outFile<<"  Insight:    "<<players[i].getInsight()<<endl;
+            outFile<<"  DP:         "<<players[i].getDiscoveryPts()<<endl;
+        }
+        outFile.close();
+        cout << "\nGame stats written to game_stats.txt\n";
+    }
+    else{
+        cout << "\nError: could not write game_stats.txt\n";
+    }
+
+    return 0;
 }
