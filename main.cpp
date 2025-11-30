@@ -171,6 +171,11 @@ int main(){
     int currentPlayer=0; // tracking which players turn it is
 
     while(!p1Finished || !p2Finished){
+        if ((currentPlayer==0 && p1Finished) || (currentPlayer==1 && p2Finished)) {   // skips player turn if they already finished
+            cout<<endl<<"Player "<<currentPlayer + 1<<" has already finished and skips this turn."<<endl;
+            currentPlayer=1-currentPlayer;
+            continue;
+        }
         cout<<endl<<"------------------------------------------";
         cout<<endl<<"             PLAYER "<<currentPlayer+1<<"'s TURN              ";
         cout<<endl<<"------------------------------------------";
