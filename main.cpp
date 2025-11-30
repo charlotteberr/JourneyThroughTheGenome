@@ -188,23 +188,45 @@ int main(){
             cout<<endl<<"| 4 | Review Advisor";
             cout<<endl<<"| 5 | Move Forward"<<endl;
             cout<<endl<<"Choice: ";
-            int menuChoice1;
-            cin>>menuChoice1;
-            if(menuChoice1==1){
-                // ADD CHOICE 1
+            int menuChoice;
+            cin>>menuChoice;
+            if(menuChoice==1){
+                cout<<endl<<"Option 1 choices..."<<endl;
+                cout<<"| 1 | Review Discovery Points"<<endl;
+                cout<<"| 2 | Review Trait Stats"<<endl;
+                int menu1Choice;
+                cout<<endl<<"Choice: ";
+                cin>>menu1Choice;
+                if(menu1Choice==1){
+                    cout<<endl<<"Discovery Points: "<<players[currentPlayer].getDiscoveryPts()<<endl;
+                }
+                else{
+                    cout<<endl<<"Accuracy: "<<players[currentPlayer].getAccuracy();
+                    cout<<endl<<"Efficiency: "<<players[currentPlayer].getEfficiency();
+                    cout<<endl<<"Insight: "<<players[currentPlayer].getInsight()<<endl;
+                }
             }
-            else if(menuChoice1==2){
-                // ADD CHOICE 2
+            else if(menuChoice==2){
+                cout<<endl<<"Name: "<<players[currentPlayer].getName();
+                cout<<endl<<"Experience: "<<players[currentPlayer].getExperience();
+                if(players[currentPlayer].getPathType()==0){
+                    cout<<endl<<"Path Type: Training Fellowship"<<endl;
+                }
+                else{
+                    cout<<endl<<"Path Type: Direct Lab Assignment"<<endl;
+                }
             }
-            else if(menuChoice1==3){
+            else if(menuChoice==3){
+                cout<<endl<<"Current Position: Tile "<<board.getPlayerPosition(currentPlayer)<<" / 51"<<endl;
                 board.displayBoard();
             }
-            else if(menuChoice1==4){
+            else if(menuChoice==4){
                 //ADD CHOICE 4
             }
-            else if(menuChoice1==5){
+            else if(menuChoice==5){
                 int roll = rand() % 6+1;
                 cout<<endl<<"You rolled a "<<roll<<"!"<<endl;
+                cout<<endl;
                 bool reachedEnd=false;
                 for(int step=0; step<roll; step++){
                     reachedEnd=board.movePlayer(currentPlayer);
