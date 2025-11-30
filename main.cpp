@@ -178,13 +178,13 @@ Player processBlueTile(Player p){
         p.addInsight(200);
         p.addDiscoveryPts(1000);
     }
-    if(similarity<0.8 && similarity>=0.5){
+    else if(similarity<0.8 && similarity>=0.5){
         cout<<endl<<"Good match.\n";
         p.addAccuracy(100);
         p.addInsight(100);
         p.addDiscoveryPts(500);
     }
-    else{
+    else if(similarity<0.5){
         cout<<endl<<"Poor match...\n";
         p.addAccuracy(-100);
         p.addInsight(-100);
@@ -256,13 +256,13 @@ Player processPinkTile(Player p){
         p.addInsight(200);
         p.addDiscoveryPts(1000);
     }
-    if(bestScore<0.8 && bestScore>=0.5){
+    else if(bestScore<0.8 && bestScore>=0.5){
         cout<<endl<<"Good match.\n";
         p.addAccuracy(100);
         p.addInsight(100);
         p.addDiscoveryPts(500);
     }
-    else{
+    else if(bestScore<0.5){
         cout<<endl<<"Poor match...\n";
         p.addAccuracy(-100);
         p.addInsight(-100);
@@ -320,13 +320,13 @@ Player processRedTile(Player p){
         p.addInsight(200);
         p.addDiscoveryPts(1000);
     }
-    if(bestScore>=0.5){
+    else if(bestScore<0.8 && bestScore>=0.5){
         cout<<endl<<"Moderate mutation detection.\n";
         p.addAccuracy(100);
         p.addInsight(100);
         p.addDiscoveryPts(500);
     }
-    else{
+    else if(bestScore<0.5){
         cout<<endl<<"Weak mutation identification...\n";
         p.addAccuracy(-100);
         p.addInsight(-100);
@@ -677,10 +677,10 @@ int main(){
 
     cout<<endl<<"========================================"<<endl;
     if(dp1>dp2){
-        cout<<endl<<"| WINNER | Player 1 - "<<players[0].getName()<< "with "<<dp1<<" Discovery Points!\n";
+        cout<<endl<<"| WINNER | Player 1 - "<<players[0].getName()<< " with "<<dp1<<" Discovery Points!\n";
     }
     else if(dp2>dp1){
-        cout<<endl<<"| WINNER | Player 2 - "<<players[1].getName()<< "with "<<dp2<<" Discovery Points!\n";
+        cout<<endl<<"| WINNER | Player 2 - "<<players[1].getName()<< " with "<<dp2<<" Discovery Points!\n";
     }
     else if(dp1==dp2){
         cout<<endl<<"| TIE | Both players have equal Discovery Points!\n";
